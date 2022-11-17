@@ -1,2 +1,9 @@
 
-I could use the Rosalie example
+Example code:
+
+## For the example we use the varespec dataset from vegan r package (Oksanen et al. 2022).
+require(vegan)
+data(varespec)
+
+## Perform Bray-Curtis dissimilarity matrix between samples.
+dis <- vegdist(varespec)

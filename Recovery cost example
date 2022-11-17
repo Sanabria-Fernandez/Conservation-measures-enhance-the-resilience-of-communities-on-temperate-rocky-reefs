@@ -7,3 +7,27 @@ data(varespec)
 
 ## Perform Bray-Curtis dissimilarity matrix between samples.
 dis <- vegdist(varespec)
+
+## We create an artificial factor, which simulates the protection levels in the article. 
+In this case, we create two levels of protection "level.a" and "level.b".
+
+protection.levels <- factor(c(rep(1,16), rep (2,8)), labels= c("level.a", "level.b"))
+
+## Here, we compute the multivariate distances from the localities of the level.b to the confidence interval (CI 95%) of the centroid of level.a
+
+level.a <- recovery.cost.function(dis, protection.levels, 1, type="centroid")
+
+## Getting the multidimensional distances
+
+z <- as.data.frame(level.a$distances)
+x <- cbind(protection.levels, z)
+colnames(x) <- c("protection.levels", "multidimensional.distances")
+
+distances.to.level.a <- subset(x, protection.levels== "level.b") 
+
+## Including id
+distances.to.level.a$id <- 1:nrow(distances.to.level.a)
+
+## Looking at dataset
+
+View(distances.to.level.a)

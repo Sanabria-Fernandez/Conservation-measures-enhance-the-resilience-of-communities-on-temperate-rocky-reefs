@@ -109,7 +109,7 @@ recovery.cost.function <-
     ## observation in the group
     ## Uses in-line Resids function as we want LAD residuals for
     ## median method, and LSQ residuals for centroid method
-    centroids1<-centroids[Nu,]# Here, you will include your reference centroind. You will measure the distance from the points to your reference centroid.
+    centroids1<-centroids[Nu,]# Here, you will include your reference centroind. You will measure the distance from the points to your CI95% of the reference centroid.
     dist.pos <- Resids(vectors[, pos, drop=FALSE],
                        centroids1[pos, drop=FALSE])
     dist.neg <- 0

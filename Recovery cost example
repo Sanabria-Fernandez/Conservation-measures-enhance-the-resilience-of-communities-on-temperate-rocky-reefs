@@ -8,8 +8,7 @@ data(varespec)
 ## Perform Bray-Curtis dissimilarity matrix between samples.
 dis <- vegdist(varespec)
 
-## We create an artificial factor, which simulates the protection levels in the article. 
-In this case, we create two levels of protection "level.a" and "level.b".
+## We create an artificial factor, which simulates the protection levels in the article. In this case, we create two levels of protection "level.a" and "level.b".
 
 protection.levels <- factor(c(rep(1,16), rep (2,8)), labels= c("level.a", "level.b"))
 
@@ -31,3 +30,5 @@ distances.to.level.a$id <- 1:nrow(distances.to.level.a)
 ## Looking at dataset
 
 View(distances.to.level.a)
+
+## Repeat the process for all you protection (or equivalent) levels.
